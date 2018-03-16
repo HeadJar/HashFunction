@@ -19,7 +19,7 @@ public class TicTacToeHashCode extends Board {
 
 		int num = 0;
 
-		for (int i; i < TicTacToe.ROWS; i++) {
+		for (int i=0; i < TicTacToe.ROWS; i++) {
 			for (int j = 0; i < TicTacToe.COLS; i++) {
 				char ch = super.charAt(i, j);
 
