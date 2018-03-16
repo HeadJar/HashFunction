@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 //TODO Make sure you remove all of the TODO comments from this file before turning itin
 
 public class TicTacToeHashCode extends Board {
@@ -41,6 +45,30 @@ public class TicTacToeHashCode extends Board {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
+
+		Scanner user = new Scanner(System.in);
+		String inputFileName, outputFileName;
+		File input = null;
+		Scanner scan = null;
+		if (args.length < 1) {
+			System.out.print("Input File Name: ");
+			inputFileName = user.nextLine().trim();
+			input = new File(inputFileName);
+
+		} else {
+
+			input = new File(args[0]);
+			try {
+				scan = new Scanner(input);
+			} catch (FileNotFoundException ex) {
+				System.out.println("Please enter file");
+
+			}
+
+		}
+		
+		
+
 		TicTacToeHashCode board = new TicTacToeHashCode("Tic Tac Toe");
 		while (true) {
 
@@ -48,6 +76,7 @@ public class TicTacToeHashCode extends Board {
 			board.show(currentBoard);
 			board.setHashCode(board.myHashCode());
 			// TODO Update this line to call your isWin method.
+
 			board.setWinner(TicTacToe.isWin(currentBoard));
 
 			Thread.sleep(4000);
