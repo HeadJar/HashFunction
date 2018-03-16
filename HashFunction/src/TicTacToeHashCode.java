@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 public class TicTacToeHashCode extends Board {
 
-	boolean[] winners; // True if the hash string that maps to this index is a winner, false otherwise
+	
+	int arraySize = (int) Math.pow(3,9);
+	boolean[] winners = new boolean[arraySize] ; // True if the hash string that maps to this index is a winner, false otherwise
 
 	TicTacToeHashCode(String s) {
 		super(s);
@@ -39,8 +41,11 @@ public class TicTacToeHashCode extends Board {
 	}
 
 	public boolean isWin(String s) {
-		// return the value in the winner array for the hash chode of the board string
+		// return the value in the winner array for the hash code of the board string
 		// sent in.
+		
+		
+		
 		return true;
 	}
 
