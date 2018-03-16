@@ -19,11 +19,14 @@ public class TicTacToeHashCode extends Board {
 
 		int num = 0;
 
-		for (int i=0; i < TicTacToe.ROWS; i++) {
+		for (int i = 0; i < TicTacToe.ROWS; i++) {
 			for (int j = 0; i < TicTacToe.COLS; i++) {
 				char ch = super.charAt(i, j);
-
-				num += pow3[i][j];
+				if (ch == ('X')) {
+					num += pow3[i][j];
+				} else if (ch == ('O')) {
+					num += 2 * pow3[i][j];
+				}
 			}
 
 		}
