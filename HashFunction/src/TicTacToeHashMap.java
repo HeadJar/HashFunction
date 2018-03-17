@@ -8,18 +8,6 @@ public class TicTacToeHashMap  {
 
 // TODO Define a hash map to store the winning strings as Key and true as Value
 
-	public Scanner openFile(String fName) {
-
-		File file = new File(fName);
-		Scanner kb = null;
-		try {
-			kb = new Scanner(file);
-		} catch (FileNotFoundException e) {
-			System.out.println("Can't open file: " + fName);
-			return null;
-		}
-		return kb;
-	}
 	
 	
 	
