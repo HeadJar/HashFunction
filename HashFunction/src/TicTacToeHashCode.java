@@ -6,19 +6,23 @@ import java.util.*;
 
 public class TicTacToeHashCode extends Board {
 
-	int arraySize = (int) Math.pow(3,9);
-	boolean[] winners = new boolean[arraySize] ; // True if the hash string that maps to this index is a winner, false otherwise
+	int arraySize = (int) Math.pow(3, 9);
+	boolean[] winners = new boolean[arraySize]; // True if the hash string that maps to this index is a winner, false
+												// otherwise
 
 	TicTacToeHashCode(String s) {
 		super(s);
 		// TODO Instantiate/fill winners array.
 		Scanner input = openFile("Winners.txt");
-		
-		while(input.hasNextLine()) {
-			winners[input.next().hashCode()] = true;
+
+		while (input.hasNextLine()) {
+
+			super.setBoardString(input.next());
+			int winner = myHashCode();
+
+			winners[winner] = true;
 		}
-		
-		
+
 	}
 
 	// TODO - write the myHashCode function. It must create a unique hashcode
@@ -49,13 +53,15 @@ public class TicTacToeHashCode extends Board {
 		// string sent in.
 		return true;
 	}
-	
+
 	/**
 	 * Opens file for reading
-	 * @param fName name of file
+	 * 
+	 * @param fName
+	 *            name of file
 	 * @return returns the scanner ready for testing
 	 */
-	
+
 	public Scanner openFile(String fName) {
 
 		File file = new File(fName);
@@ -68,11 +74,14 @@ public class TicTacToeHashCode extends Board {
 		}
 		return kb;
 	}
-/**
- * This reads input to the output File
- * @param fName name of the file
- * @return the output
- */
+
+	/**
+	 * This reads input to the output File
+	 * 
+	 * @param fName
+	 *            name of the file
+	 * @return the output
+	 */
 	public PrintWriter readToFile(String fName) {
 		File file = new File(fName);
 		PrintWriter input = null;
@@ -84,12 +93,9 @@ public class TicTacToeHashCode extends Board {
 		}
 		return input;
 	}
-	
-	
-	
 
 	public static void main(String[] args) throws InterruptedException {
-	
+
 		Scanner user = new Scanner(System.in);
 		String inputFileName;
 		File input = null;
@@ -98,26 +104,23 @@ public class TicTacToeHashCode extends Board {
 			System.out.print("Input File Name: ");
 			inputFileName = user.nextLine().trim();
 			input = new File(inputFileName);
-			
+
 		} else {
 
 			input = new File(args[0]);
 			try {
-				scan = new Scanner (input);
-			}catch(FileNotFoundException ex) {
+				scan = new Scanner(input);
+			} catch (FileNotFoundException ex) {
 				System.out.println("Please enter file");
-			
+
 			}
-			
-			
-		
+
 		}
 
 		// prepare the input file
 
 		scan = new Scanner(input);
-		
-		
+
 		TicTacToeHashCode board = new TicTacToeHashCode("Tic Tac Toe");
 		while (true) {
 
@@ -134,5 +137,4 @@ public class TicTacToeHashCode extends Board {
 		}
 	}
 
-	
 }
