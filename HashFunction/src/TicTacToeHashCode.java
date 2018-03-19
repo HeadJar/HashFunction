@@ -6,12 +6,19 @@ import java.util.*;
 
 public class TicTacToeHashCode extends Board {
 
-	boolean[] winners; // True if the hash string that maps to this index is a
-						// winner, false otherwise
+	int arraySize = (int) Math.pow(3,9);
+	boolean[] winners = new boolean[arraySize] ; // True if the hash string that maps to this index is a winner, false otherwise
 
 	TicTacToeHashCode(String s) {
 		super(s);
 		// TODO Instantiate/fill winners array.
+		Scanner input = openFile("Winners.txt");
+		
+		while(input.hasNextLine()) {
+			winners[input.next().hashCode()] = true;
+		}
+		
+		
 	}
 
 	// TODO - write the myHashCode function. It must create a unique hashcode
