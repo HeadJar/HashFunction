@@ -119,7 +119,12 @@ public class TicTacToeHashCode extends Board {
 
 		// prepare the input file
 
-		scan = new Scanner(input);
+		try {
+			scan = new Scanner(input);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		TicTacToeHashCode board = new TicTacToeHashCode("Tic Tac Toe");
 		while (true) {
@@ -131,7 +136,7 @@ public class TicTacToeHashCode extends Board {
 			board.displayRandomString();
 			board.setHashCodeLabel(board.myHashCode());
 			// TODO Update this line to call your isWin method.
-			board.setWinner(TicTacToe.isWin(currentBoard));
+		//	board.setWinner(TicTacToe.isWin(currentBoard));
 
 			Thread.sleep(4000);
 		}
