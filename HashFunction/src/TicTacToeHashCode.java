@@ -49,7 +49,7 @@ public class TicTacToeHashCode extends Board {
 	}
 
 	public boolean isWin(String s) {
-		// return the value in the winner array for the hash chode of the board
+		// return the value in the winner array for the hash code of the board
 		// string sent in.
 		Scanner input = openFile("Winners.txt");
 
