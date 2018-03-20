@@ -54,11 +54,12 @@ public class TicTacToeHashCode extends Board {
 		Scanner input = openFile("Winners.txt");
 
 		while (input.hasNextLine()) {
-if(input.next().equals(s)) { return true; }
-			
+			if (input.next().equals(s)) {
+				return true;
+			}
+
 		}
 
-		
 		return false;
 	}
 
@@ -144,7 +145,7 @@ if(input.next().equals(s)) { return true; }
 			board.displayRandomString();
 			board.setHashCodeLabel(board.myHashCode());
 			// TODO Update this line to call your isWin method.
-		//	board.setWinner(TicTacToe.isWin(currentBoard));
+			// board.setWinner(TicTacToe.isWin(currentBoard));
 
 			Thread.sleep(4000);
 		}
