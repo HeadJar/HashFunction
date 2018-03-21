@@ -30,7 +30,7 @@ abstract class Board extends JFrame implements ActionListener {
       lblWinTitle.setText(result);
    }
    
-      public void setWinnerLabel(boolean result) {
+   public void setWinnerLabel(boolean result) {
       if (result)
          setWinnerLabel("Winner");
       else
@@ -73,8 +73,8 @@ abstract class Board extends JFrame implements ActionListener {
                      JButton btn = (JButton) e.getSource();
                      btn.setText("" + cycleValue(btn.getText().charAt(0)));
                      resetBoardString();
-                     lblHashCode.setText("" + myHashCode());
-                     //TODO - should this set the winner label text
+                     setHashCodeLabel(myHashCode());
+                     setWinnerLabel(isWin());
                      
                   }  
                });              
@@ -127,6 +127,7 @@ abstract class Board extends JFrame implements ActionListener {
    
    abstract int myHashCode();
    abstract boolean isWin(String s);
+   abstract boolean isWin();
 
    public char charAt(int row, int col) {
       String value = buttons[row][col].getText();
@@ -168,7 +169,7 @@ abstract class Board extends JFrame implements ActionListener {
    }
    
    public String getBoardString() {
-     return boardString;
+      return boardString;
    }
 
    public void displayRandomString() {
@@ -179,12 +180,10 @@ abstract class Board extends JFrame implements ActionListener {
             buttons[r][c].setText(""+ch);
          }
       setHashCodeLabel(myHashCode());
-
-     setWinnerLabel(isWin(boardString));
+   
+      setWinnerLabel(isWin());
      
    }
-   
-   public int get
    
    
 }
