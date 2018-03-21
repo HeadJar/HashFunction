@@ -184,5 +184,7 @@ abstract class Board extends JFrame implements ActionListener {
      
    }
    
+   public int get
+   
    
 }
