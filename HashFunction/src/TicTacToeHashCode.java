@@ -59,9 +59,9 @@ public class TicTacToeHashCode extends Board {
 				if (input.next().equals(s)) {
 					return true;
 				}
+			}
+return false;
 
-		 
-	    return false;
 	    }
 	    
 	    @Override
