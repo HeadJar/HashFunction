@@ -22,12 +22,10 @@ abstract class Board extends JFrame implements ActionListener {
       setupFrame();
    }
    
-   // TODO renamed from setHashCode to setHashCodeLabel
    public void setHashCodeLabel(int hashcode) {
       lblHashCode.setText("" + hashcode);
    }
    
-   // TODO renamed from setWinner to setWinnerLabel
    public void setWinnerLabel(String result) {
       lblWinTitle.setText(result);
    }
@@ -154,26 +152,25 @@ abstract class Board extends JFrame implements ActionListener {
                default : letter = "" + ch;                                                                                                                                                                                                                                                                                        xx: letter = " ";
             }       
             buttons[r][c].setText(letter);
-            ch++;
+            pos++;
          }
    }
-   //TODO Added this method
    public void resetBoardString() {
       for (int r = 0; r < TicTacToe.ROWS; r++)
          for (int c = 0; c < TicTacToe.COLS; c++){
             boardString += buttons[r][c].getText();
          }
    }
-   // TODO Added this Method
+
    public void setBoardString(String s) {
       boardString = s;
       show(s);
    }
    
-   public String getBoardString(String s) {
+   public String getBoardString() {
      return boardString;
    }
-   // TODO Added this message
+
    public void displayRandomString() {
       for (int r = 0; r < TicTacToe.ROWS; r++) 
          for (int c = 0; c < TicTacToe.COLS; c++) {
