@@ -48,20 +48,31 @@ public class TicTacToeHashCode extends Board {
 		return num;
 	}
 
-	public boolean isWin(String s) {
+	 @Override
+	    public boolean isWin(String s) {
+	    // TODO return the value in the winner array for the hash chode of the board string sent in.
 		// return the value in the winner array for the hash code of the board
-		// string sent in.
-		Scanner input = openFile("Winners.txt");
+			// string sent in.
+			Scanner input = openFile("Winners.txt");
 
-		while (input.hasNextLine()) {
-			if (input.next().equals(s)) {
-				return true;
-			}
+			while (input.hasNextLine()) {
+				if (input.next().equals(s)) {
+					return true;
+				}
 
-		}
+		 
+	    return false;
+	    }
+	    
+	    @Override
+	    public boolean isWin() {
+	       // TODO return the value in the winner array for the hash chode of the current board string.
+	      return true;
+	    }
 
-		return false;
-	}
+	
+	
+	
 
 	/**
 	 * Opens file for reading
