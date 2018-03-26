@@ -1,3 +1,5 @@
+
+/*
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
@@ -23,12 +25,12 @@ public class TicTacToeHashMap  {
 // You should be able to update this with your information and determine 
 // Information about capacity (different than size()) and what is stored in the cells
 
-   private int capacity() throws NoSuchFieldException, IllegalAccessException {
-      Field tableField = HashMap.class.getDeclaredField("table");
-      tableField.setAccessible(true);
-      Object[] table = (Object[]) tableField.get(##YOUR HASH MAP HERE ##);
-      return table == null ? 0 : table.length;   
-   }
+ //  private int capacity() throws NoSuchFieldException, IllegalAccessException {
+ //     Field tableField = HashMap.class.getDeclaredField("table");
+//      tableField.setAccessible(true);
+   //   Object[] table = (Object[]) tableField.get(##YOUR HASH MAP HERE ##);
+   //   return table == null ? 0 : table.length;   
+  // }
    
    // TODO using the same code to get the table of entries as in the capacity method,
    // create a method that will evaluate the table as directed in the assignment.
@@ -67,3 +69,4 @@ public class TicTacToeHashMap  {
    }
 
 }
+*/

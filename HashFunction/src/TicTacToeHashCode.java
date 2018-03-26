@@ -6,21 +6,30 @@ import java.util.*;
 
 public class TicTacToeHashCode extends Board {
 
+	/**
+	 * name of the file with the winning tic tac toe setups
+	 */
+	public static final String WINNERS_FILE_NAME = "TicTacToeWinners.txt";
+	
+	
 	int arraySize = (int) Math.pow(3, 9);
-	boolean[] winners = new boolean[arraySize]; // True if the hash string that maps to this index is a winner, false
+	boolean[] winners ; // True if the hash string that maps to this index is a winner, false
 												// otherwise
 
 	TicTacToeHashCode(String s) {
 		super(s);
 		// TODO Instantiate/fill winners array.
-		Scanner input = openFile("Winners.txt");
+		Scanner input = openFile(WINNERS_FILE_NAME);
 
+		winners = new boolean[arraySize];
+		
 		while (input.hasNextLine()) {
 
 			super.setBoardString(input.next());
 			int winner = myHashCode();
 
 			winners[winner] = true;
+			System.out.println(winners[winner]);
 		}
 
 	}
@@ -35,7 +44,7 @@ public class TicTacToeHashCode extends Board {
 		int[][] pow3 = { { 1, 3, 9 }, { 27, 81, 243 }, { 729, 2187, 6561 } };
 
 		for (int i = 0; i < TicTacToe.ROWS; i++) {
-			for (int j = 0; i < TicTacToe.COLS; j++) {
+			for (int j = 0; j < TicTacToe.COLS; j++) {
 				char ch = super.charAt(i, j);
 				if (ch == 'x') {
 					num += pow3[i][j];
@@ -48,31 +57,29 @@ public class TicTacToeHashCode extends Board {
 		return num;
 	}
 
-	 @Override
-	    public boolean isWin(String s) {
-	    // TODO return the value in the winner array for the hash chode of the board string sent in.
+	@Override
+	public boolean isWin(String s) {
+		// TODO return the value in the winner array for the hash chode of the board
+		// string sent in.
 		// return the value in the winner array for the hash code of the board
-			// string sent in.
-			Scanner input = openFile("Winners.txt");
+		// string sent in.
+		Scanner input = openFile("Winners.txt");
 
-			while (input.hasNextLine()) {
-				if (input.next().equals(s)) {
-					return true;
-				}
+		while (input.hasNextLine()) {
+			if (input.next().equals(s)) {
+				return true;
 			}
-return false;
+		}
+		return false;
 
-	    }
-	    
-	    @Override
-	    public boolean isWin() {
-	       // TODO return the value in the winner array for the hash chode of the current board string.
-	      return true;
-	    }
+	}
 
-	
-	
-	
+	@Override
+	public boolean isWin() {
+		// TODO return the value in the winner array for the hash chode of the current
+		// board string.
+		return true;
+	}
 
 	/**
 	 * Opens file for reading
@@ -115,7 +122,7 @@ return false;
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-
+/*
 		Scanner user = new Scanner(System.in);
 		String inputFileName;
 		File input = null;
@@ -145,21 +152,21 @@ return false;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+*/
 		TicTacToeHashCode board = new TicTacToeHashCode("Tic Tac Toe");
-		while (true) {
+		//while (true) {
 
 			// TODO this line no longer works
 			// String currentBoard = board.boardValues[(int)(Math.random()*
 			// board.boardValues.length)];
 
-			board.displayRandomString();
-			board.setHashCodeLabel(board.myHashCode());
+		//	board.displayRandomString();
+		//	board.setHashCodeLabel(board.myHashCode());
 			// TODO Update this line to call your isWin method.
 			// board.setWinner(TicTacToe.isWin(currentBoard));
 
-			Thread.sleep(4000);
-		}
+		//	Thread.sleep(4000);
+		//}
 	}
 
 }
