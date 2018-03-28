@@ -6,30 +6,26 @@ import java.util.*;
 
 public class TicTacToeHashCode extends Board {
 
-	/**
-	 * name of the file with the winning tic tac toe setups
-	 */
-	public static final String WINNERS_FILE_NAME = "TicTacToeWinners.txt";
-	
-	
 	int arraySize = (int) Math.pow(3, 9);
-	boolean[] winners ; // True if the hash string that maps to this index is a winner, false
-												// otherwise
+	boolean[] winners; // True if the hash string that maps to this index is a winner, false
+						// otherwise
 
 	TicTacToeHashCode(String s) {
+		
 		super(s);
-		// TODO Instantiate/fill winners array.
-		Scanner input = openFile(WINNERS_FILE_NAME);
+		//System.out.println(s);
+		Scanner input = openFile("TicTacToeWinners.txt");
 
 		winners = new boolean[arraySize];
-		
+
 		while (input.hasNextLine()) {
-
-			super.setBoardString(input.next());
-			int winner = myHashCode();
-
-			winners[winner] = true;
-			System.out.println(winners[winner]);
+			System.out.println(super.getBoardString());
+			super.setBoardString(input.nextLine());
+			System.out.println(super.getBoardString());
+			// int winner = myHashCode();
+			System.out.println(myHashCode());
+			// winners[winner] = true;
+			// System.out.println(winner);
 		}
 
 	}
@@ -37,7 +33,7 @@ public class TicTacToeHashCode extends Board {
 	// TODO - write the myHashCode function. It must create a unique hashcode
 	// for all of the
 	// possible values the game board (3 ^ 9) and it MUST use the
-	// super.charAt(row, col) function
+	// super.charAt(row, col) function////
 	@Override
 	public int myHashCode() {
 		int num = 0;
@@ -46,14 +42,15 @@ public class TicTacToeHashCode extends Board {
 		for (int i = 0; i < TicTacToe.ROWS; i++) {
 			for (int j = 0; j < TicTacToe.COLS; j++) {
 				char ch = super.charAt(i, j);
+				// System.out.print(ch);
 				if (ch == 'x') {
 					num += pow3[i][j];
 				} else if (ch == 'o') {
 					num += 2 * pow3[i][j];
 				}
-
 			}
 		}
+		// System.out.println(num);
 		return num;
 	}
 
@@ -63,13 +60,15 @@ public class TicTacToeHashCode extends Board {
 		// string sent in.
 		// return the value in the winner array for the hash code of the board
 		// string sent in.
-		Scanner input = openFile("Winners.txt");
+		// Scanner input = openFile("Winners.txt");
 
-		while (input.hasNextLine()) {
-			if (input.next().equals(s)) {
-				return true;
-			}
-		}
+		
+		//while()
+		// while (input.hasNextLine()) {
+		// if (input.next().equals(s)) {
+		// return true;
+		// }
+		// }
 		return false;
 
 	}
@@ -80,14 +79,6 @@ public class TicTacToeHashCode extends Board {
 		// board string.
 		return true;
 	}
-
-	/**
-	 * Opens file for reading
-	 * 
-	 * @param fName
-	 *            name of file
-	 * @return returns the scanner ready for testing
-	 */
 
 	public Scanner openFile(String fName) {
 
@@ -122,51 +113,9 @@ public class TicTacToeHashCode extends Board {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-/*
-		Scanner user = new Scanner(System.in);
-		String inputFileName;
-		File input = null;
-		Scanner scan = null;
-		if (args.length < 1) {
-			System.out.print("Input File Name: ");
-			inputFileName = user.nextLine().trim();
-			input = new File(inputFileName);
 
-		} else {
-
-			input = new File(args[0]);
-			try {
-				scan = new Scanner(input);
-			} catch (FileNotFoundException ex) {
-				System.out.println("Please enter file");
-
-			}
-
-		}
-
-		// prepare the input file
-
-		try {
-			scan = new Scanner(input);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-*/
 		TicTacToeHashCode board = new TicTacToeHashCode("Tic Tac Toe");
-		//while (true) {
 
-			// TODO this line no longer works
-			// String currentBoard = board.boardValues[(int)(Math.random()*
-			// board.boardValues.length)];
-
-		//	board.displayRandomString();
-		//	board.setHashCodeLabel(board.myHashCode());
-			// TODO Update this line to call your isWin method.
-			// board.setWinner(TicTacToe.isWin(currentBoard));
-
-		//	Thread.sleep(4000);
-		//}
 	}
 
 }
