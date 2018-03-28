@@ -7,7 +7,7 @@ import java.util.*;
 public class TicTacToeHashCode extends Board {
 
 	int arraySize = (int) Math.pow(3, 9);
-	boolean[] winners; // True if the hash string that maps to this index is a winner, false
+	boolean[] winners = new boolean[arraySize]; // True if the hash string that maps to this index is a winner, false
 						// otherwise
 
 	TicTacToeHashCode(String s) {
@@ -16,16 +16,14 @@ public class TicTacToeHashCode extends Board {
 		//System.out.println(s);
 		Scanner input = openFile("TicTacToeWinners.txt");
 
-		winners = new boolean[arraySize];
+		
 
 		while (input.hasNextLine()) {
-			System.out.println(super.getBoardString());
+		//System.out.println(input.);
 			super.setBoardString(input.nextLine());
-			System.out.println(super.getBoardString());
-			// int winner = myHashCode();
-			System.out.println(myHashCode());
-			// winners[winner] = true;
-			// System.out.println(winner);
+			int winner = myHashCode();
+			 winners[winner] = true;
+			 //System.out.println(winner);
 		}
 
 	}
@@ -54,26 +52,9 @@ public class TicTacToeHashCode extends Board {
 		return num;
 	}
 
-	@Override
-	public boolean isWin(String s) {
-		// TODO return the value in the winner array for the hash chode of the board
-		// string sent in.
-		// return the value in the winner array for the hash code of the board
-		// string sent in.
-		// Scanner input = openFile("Winners.txt");
 
-		
-		//while()
-		// while (input.hasNextLine()) {
-		// if (input.next().equals(s)) {
-		// return true;
-		// }
-		// }
-		return false;
 
-	}
 
-	@Override
 	public boolean isWin() {
 		// TODO return the value in the winner array for the hash chode of the current
 		// board string.
@@ -97,7 +78,7 @@ public class TicTacToeHashCode extends Board {
 	 * This reads input to the output File
 	 * 
 	 * @param fName
-	 *            name of the file
+	 *  name of the file
 	 * @return the output
 	 */
 	public PrintWriter readToFile(String fName) {
@@ -116,6 +97,12 @@ public class TicTacToeHashCode extends Board {
 
 		TicTacToeHashCode board = new TicTacToeHashCode("Tic Tac Toe");
 
+	}
+
+	@Override
+	boolean isWin(String s) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
