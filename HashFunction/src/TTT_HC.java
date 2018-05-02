@@ -9,7 +9,12 @@ public class TTT_HC extends Board{
 		
 		int arraySize = (int) Math.pow(3, 9);
 	
-		for(int i = 0;i<)
+		String[] winners = new String[arraySize]; 
+		
+		for(int i = 0;i< arraySize;i++) {
+			ArrayList<String> arrList = new ArrayList<String>(1);
+			winners[i] = arrList;
+		}
 		
 		
 	}

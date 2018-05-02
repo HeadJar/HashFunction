@@ -56,8 +56,7 @@ public class TicTacToeHashCode extends Board {
 
 
 	public boolean isWin() {
-		// TODO return the value in the winner array for the hash chode of the current
-		// board string.
+
 		return true;
 	}
 
